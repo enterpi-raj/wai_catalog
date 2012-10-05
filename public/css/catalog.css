@@ -1,0 +1,57 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  background: #fff;
+}
+.app{
+  color: #565656;
+  min-width: 1000px;
+  min-height: 500px; /*650*/
+  font-family: Arial, Helvetica, Geneva, sans-serif;
+}
+.app input[type="text"], .app input.text, .app textarea{
+  font-size: 13px;
+  color: #333;
+  font-family: Arial, Helvetica, Geneva, sans-serif;
+}
+.wrapper{ 
+  width: 982px;
+  margin: 0 auto;
+}
+.content{
+  border: 1px solid #d0d0d0;
+  border-top: 0;
+}
+.content form{ padding: 40px 30px}
+.header{ 
+  background: #182b3f;
+  height: 54px;
+  color: #fff
+}
+.cp_w{ 
+  width:724px;
+  border: 1px solid #c3c7cd;
+  margin-bottom: 20px
+}
+.cp_em{ 
+  padding:20px; 
+  border-right: 1px solid #dedede
+}
+.cp_em.last{ border-right: 0}
+.cp_em.active{ background: #dedede;}
+.cp_em img,.cp_em input{ 
+  display: block;
+  margin: 0 auto 
+}
+.cp_em img{ 
+  width: 140px; 
+  height: 180px;
+  margin-bottom: 14px
+}
+.c_hd{ 
+  font-size: 14px;
+  color: #454545;
+  font-weight: bold;
+  margin-bottom: 12px
+}
