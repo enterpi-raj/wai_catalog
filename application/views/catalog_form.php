@@ -76,12 +76,14 @@
       </div>
       
       <div class="c_ftr">
-
+        <a class="blue_but">
+          <span class="inner-btn">
+            <span class="label">Generate PDF</span>
+          </span>
+        </a>
       </div>
       
-      <div class="padtop">
-          <input name="sub" type="submit" value="Generate PDF" />
-      </div>
+      <input name="sub" type="submit" value="Generate PDF" />
     
     </form>
   
