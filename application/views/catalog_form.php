@@ -59,22 +59,22 @@ function resizeWindow( e ) {
       <div class="cp_w">
         
         <div class="cp_1 f_l cp_em">
-          <img src="<?php echo base_url(); ?>public/images/img1.jpg" alt="" />
+          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img1.jpg" alt="" />
           <input type="radio" value="1" name="coverpage" class="jcp" />
         </div>
 
         <div class="cp_1 f_l cp_em ">
-          <img src="<?php echo base_url(); ?>public/images/img2.jpg" alt="" />
+          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img2.jpg" alt="" />
           <input type="radio" value="2" name="coverpage" class="jcp" />
         </div>
 
         <div class="cp_1 f_l cp_em">
-          <img src="<?php echo base_url(); ?>public/images/img3.jpg" alt="" />
+          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img3.jpg" alt="" />
           <input type="radio" value="3" name="coverpage" class="jcp"/>
         </div>
 
         <div class="cp_1 f_l cp_em last">
-          <img src="<?php echo base_url(); ?>public/images/img4.jpg" alt="" />
+          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img4.jpg" alt="" />
           <input type="radio" value="4" name="coverpage" class="jcp"/>
         </div>
 
