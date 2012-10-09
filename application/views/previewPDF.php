@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="<?php echo base_url();?>public/images/favicon.ico" />
 <link href="<?php echo base_url();?>public/css/reset.css" rel="stylesheet">
 <link href="<?php echo base_url();?>public/css/catalog.css" rel="stylesheet">
-<script language="javascript" src="http://localhost/wai_catalog/public/js/jquery.js"></script>
+<script language="javascript" src="<?php echo base_url();?>public/js/jquery.js"></script>
 <script>
 $(document).ready(function(){
     var pdfht = ($('.content').height()-58);
