@@ -1789,12 +1789,16 @@
         </style>
     </head>
     <body>
-        <div class="pbr"><img width="748px" src="images/cover_pages/<?php echo $coverpage->rename_image;?>"></div>
+        <?php
+        $basepath = BASEPATH;
+        $basepath = substr($basepath,0,-7);
+        ?>
+        <div class="pbr"><img width="748px" src="<?php echo $basepath;?>images/cover_pages/<?php echo $coverpage->rename_image;?>"></div>
         <div class="pbr"></div>
         <div class="pbr">
             <h2>Table of Contents</h2>
         </div>
-        <div class="pbr"><img width="748px" src="images/parts/<?php echo $partimage->rename_image;?>"></div>
+        <div class="pbr"><img width="748px" src="<?php echo $basepath;?>images/parts/<?php echo $partimage->rename_image;?>"></div>
         <div>
             <table class="list" style="width: 99%; margin-top: 1em;">
                 <tr class="head">
