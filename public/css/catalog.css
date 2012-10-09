@@ -8,7 +8,7 @@ body{
   color: #565656;
   min-width: 1000px;
   min-height: 500px; /*650*/
-  font-family: Arial, Helvetica, Geneva, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .app input[type="text"], .app input.text, .app textarea{
   font-size: 13px;
@@ -22,21 +22,38 @@ body{
 .content{
   border: 1px solid #d0d0d0;
   border-top: 0;
+  border-bottom: 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -492px;
+  bottom: 0;
+  top: 54px;
+  width: 982px;
+  -moz-box-shadow: 0 2px 7px #d0d0d0;
+  -webkit-box-shadow: 0 2px 7px #d0d0d0;
+  box-shadow: 0 2px 7px #d0d0d0;
 }
 .content form{ padding: 40px 30px}
 .header{ 
-  background: #182b3f;
+  background: url(../images/sprite_wai.png) repeat-x 0 0 #182b3f;
   height: 54px;
   color: #fff
 }
 .cp_w{ 
-  width:724px;
+  width:723px;
   border: 1px solid #c3c7cd;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.logo{
+  background: url(../images/logo.png) no-repeat 10px 12px;
+  width: 152px;
+  height: 48px;
 }
 .cp_em{ 
   padding:20px; 
-  border-right: 1px solid #dedede
+  border-right: 1px solid #dedede;
+  width: 140px
 }
 .cp_em.last{ border-right: 0}
 .cp_em.active{ background: #dedede;}
@@ -58,5 +75,74 @@ body{
 .c_ftr{
   border-top: 1px solid #ddd;
   margin-top: 20px;
-  padding-top: 20px
+  padding-top: 20px;
+  margin-bottom: 12px;
+}
+.c_wp select{ 
+  width: 240px; 
+  padding:2px;
+  border:1px solid #c3c7cd;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+}
+.app a.blue_but{
+  text-decoration: none !important;
+  background:url(../images/sprite_wai.png) no-repeat right -109px;
+  padding-right: 10px;
+  height: 35px;
+  display: -moz-inline-stack;
+  display: inline-block;  
+  outline: none;
+  cursor:default;
+  text-shadow: #286597 0 1px 0;
+  color:#fff;
+  font-size:16px;
+}
+.app a.blue_but span.inner-btn{
+  background:url(../images/sprite_wai.png) no-repeat left -64px;
+  height: 35px;
+  display: block;
+  padding-left: 10px;
+}
+.app a.blue_but span.inner-btn span.label{
+  background:url(../images/sprite_wai.png) repeat-x left -154px;
+  padding:8px 0 0 0;
+  display: block;
+  min-width:40px;
+  text-align: center;
+  height: 27px;
+}
+.app a:hover.blue_but {
+  color:#d8eaf9;
+}
+.app a:active.blue_but{
+  background-position:100% -244px;
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+}
+.app a:active.blue_but span.inner-btn {
+  background-position:left -199px;
+  background-repeat: no-repeat;
+  background-attachment:scroll; 
+ }
+.app a:active.blue_but span.inner-btn span.label{
+  background-position:0 -289px;
+  background-repeat: repeat-x;
+  background-attachment:scroll;
+}
+
+.p_hdr{ 
+  background:#e8f0f7; 
+  padding:10px;
+  border-bottom: 1px solid #d0d0d0
+}
+.loading{ 
+  position: absolute;;
+  left: 50%;
+  top: 300px;
+  background: url(../images/spinner.gif) no-repeat;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px
 }

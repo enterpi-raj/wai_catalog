@@ -3,17 +3,53 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Catalog Form</title>
+<link rel="shortcut icon" href="<?php echo base_url();?>public/images/favicon.ico" />
 <link href="<?php echo base_url();?>public/css/reset.css" rel="stylesheet">
 <link href="<?php echo base_url();?>public/css/catalog.css" rel="stylesheet">
+<script language="javascript" src="http://localhost/wai_catalog/public/js/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.jcp').click(function(){
+            $('.active').removeClass('active')
+            $(this).closest('div').addClass('active');
+        });
 
+        $('.jsubmit').click(function(){
+            if(typeof($('.jcp:checked').val()) == 'undefined')
+            {
+                alert('Please select Cover Image');
+                $('.jcp:first').focus();
+                return false;
+            }
+            if($('#part').val() == '0')
+            {
+                alert('Please select Part');
+                $('#part').focus();
+                return false;
+            }
+            else
+            {
+                $('#genpdf').submit();
+            }
+        });
+
+        $(window).bind("resize", resizeWindow);
+    });
+function resizeWindow( e ) {
+    var newWindowHeight = $(window).height();
+    $("#container").css("max-height", newWindowHeight );
+}
+</script>
 </head>
 
 <body class="app">
+  
   <div class="header">
     <div class="wrapper">
-        Header
+        <div class="logo"></div>
     </div>
   </div>
+  
   <div class="wrapper content">
     
     <form id="genpdf" name="genpdf" method="post" action="<?php site_url();?>catalog/previewPDF">
@@ -22,27 +58,27 @@
 
       <div class="cp_w">
         
-        <div class="cp_1 f_l cp_em active">
+        <div class="cp_1 f_l cp_em">
           <img src="<?php echo base_url(); ?>public/images/img1.jpg" alt="" />
-          <input type="radio" name="c_p_img" />
+          <input type="radio" value="1" name="coverpage" class="jcp" />
         </div>
 
         <div class="cp_1 f_l cp_em ">
           <img src="<?php echo base_url(); ?>public/images/img2.jpg" alt="" />
-          <input type="radio" name="c_p_img" />
+          <input type="radio" value="2" name="coverpage" class="jcp" />
         </div>
 
         <div class="cp_1 f_l cp_em">
           <img src="<?php echo base_url(); ?>public/images/img3.jpg" alt="" />
-          <input type="radio" name="c_p_img" />
+          <input type="radio" value="3" name="coverpage" class="jcp"/>
         </div>
 
         <div class="cp_1 f_l cp_em last">
           <img src="<?php echo base_url(); ?>public/images/img4.jpg" alt="" />
-          <input type="radio" name="c_p_img" />
+          <input type="radio" value="4" name="coverpage" class="jcp"/>
         </div>
 
-        <div class="c_b">&nbsp;</div>
+        
 
       </div>
 
@@ -76,17 +112,13 @@
       </div>
       
       <div class="c_ftr">
-        <a class="blue_but">
+        <a class="blue_but jsubmit">
           <span class="inner-btn">
-            <span class="label">Generate PDF</span>
+            <span class="label">Generate Catalog</span>
           </span>
         </a>
       </div>
-      
-      <input name="sub" type="submit" value="Generate PDF" />
-    
     </form>
-  
   </div>
 </body>
 </html>

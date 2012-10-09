@@ -16,8 +16,8 @@ class Catalog extends CI_Controller {
 
     public function previewPDF()
     {
-        echo '<pre>';
-        print_r($_POST);die;
+        /*echo '<pre>';
+        print_r($_POST);die;*/
         $this->load->view('previewPDF',$_POST);
     }
 

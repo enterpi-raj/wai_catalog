@@ -2,76 +2,83 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<style type="text/css">
-<!--
-body {
-	margin:auto;
-	background:#f0f0f0;
-	color:#565656;
-	font: Arial, Helvetica, sans-serifArial, Helvetica, sans-serif;
-	font-size:14px;
-}
-
-.maindiv{
-	background:#fff;
-	width:900px;
-	height:400px;
-	margin:40px  auto;
-	padding:auto;
-	border:1px solid #DBDBDB;
-    border-radius:8px;
-	-moz-border-radius:8px;
-    -webkit-border-radius:8px;
-}
-
-.box1{
-	width:100%;
-	margin:10px;
-	float:left;
-	}
-.box2{
-	width:100%;
-	margin:10px;
-	float:left;
-	}
-.padtop{
-    margin:10px;
-    padding-top:15px;
-}
--->
-</style>
+<title>Catalog Preview</title>
+<link rel="shortcut icon" href="<?php echo base_url();?>public/images/favicon.ico" />
+<link href="<?php echo base_url();?>public/css/reset.css" rel="stylesheet">
+<link href="<?php echo base_url();?>public/css/catalog.css" rel="stylesheet">
 <script language="javascript" src="http://localhost/wai_catalog/public/js/jquery.js"></script>
 <script>
 $(document).ready(function(){
-    var qrystr = 'coverpage=<?php echo $coverpage;?>&part=<?php echo $part;?>';
-    $.ajax({
-        type: 'POST',
-        url: 'genPDF',
-        data: qrystr,
-        beforeSend : function(){
-            $('.jspin').show();
-        },
-        success: function(data)
-        {
-            $('#pdf_preview').attr('src','<?php echo base_url();?>catalogs/catalog.pdf');
-        },
-        complete: function()
-        {
-            $('.jspin').hide();
-            $('.jdl').show();
-        }
-    });
+    var pdfht = ($('.content').height()-58);
+    $('#pdf_preview').css({'height':pdfht});
+    var cp = '<?php echo $coverpage;?>';
+    var part = '<?php echo $part;?>';
+    if((cp != '') && (part != ''))
+    {
+        var qrystr = 'coverpage='+cp+'&part='+part;
+        $.ajax({
+            type: 'POST',
+            url: 'genPDF',
+            data: qrystr,
+            beforeSend : function(){
+                $('.jspin').show();
+            },
+            success: function(data)
+            {
+                $('#pdf_preview').attr('src','<?php echo base_url();?>catalogs/catalog.pdf');
+            },
+            complete: function()
+            {
+                $('.jspin').hide();
+                $('.jdl').show();
+            }
+        });
+    }
 
+    $(window).bind("resize", resizeWindow);
+    
 });
+function resizeWindow( e ) {
+    var pdfht = ($('.content').height()-58);
+    $('#pdf_preview').css({'height':pdfht});
+}
 </script>
 </head>
-<body>
-<div class="maindiv">
-    <div><a href="<?php echo base_url();?>catalog/catalog_form">Back</a></div>
-    <div class="jspin" style="display:none">loading</div>
-    <div class="jdl" style="display:none"><a href="<?php echo base_url();?>catalog/fileDownload">Download</a></div>
-    <iframe id="pdf_preview" style="display: block; width: 990px; min-height: 450px; height: 300px; "></iframe>
-</div>
+<body class="app">
+  
+    <div class="header">
+        <div class="wrapper">
+            <div class="logo"></div>
+        </div>
+    </div>
+  
+    <div class="content">
+
+        <div class="p_hdr">
+
+            <a class="blue_but jsubmit f_l" href="<?php echo base_url();?>catalog">
+                <span class="inner-btn">
+                    <span class="label">Back</span>
+                </span>
+            </a>
+
+            <a class="blue_but jsubmit jdl f_r" href="<?php echo base_url();?>catalog/fileDownload">
+                <span class="inner-btn">
+                    <span class="label">Download</span>
+                </span>
+            </a>
+
+            <div class="c_b">&nbsp;</div>
+
+        </div>
+
+        <div class="jspin loading" style="display:none"></div>
+        <iframe id="pdf_preview" style="display: block; width: 980px; height:93% "></iframe>
+
+    </div>
 </body>
 </html>
+
+
+
+    
