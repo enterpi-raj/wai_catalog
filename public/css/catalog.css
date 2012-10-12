@@ -53,10 +53,16 @@ body{
 .cp_em{ 
   padding:20px; 
   border-right: 1px solid #dedede;
-  width: 140px
+  width: 140px;
+  -moz-transition: all .45s linear;
+  -webkit-transition: all .45s linear;
+  transition: all .45s linear;
 }
 .cp_em.last{ border-right: 0}
-.cp_em.active{ background: #dedede;}
+.cp_em.active{ 
+    background: #dedede;
+    
+}
 .cp_em img,.cp_em input{ 
   display: block;
   margin: 0 auto 

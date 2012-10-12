@@ -32,7 +32,23 @@
                 $('#genpdf').submit();
             }
         });
-
+        
+        var d = new Date();
+        var timezone=d.getTimezoneOffset();
+        var queryString="timezone="+timezone;
+        $.ajax({
+            type: 'POST',
+            url: '<?php base_url();?>catalog/setDetails',
+            data: queryString,
+            beforeSend : function(){
+            },
+            success: function(data)
+            {
+            },
+            complete: function()
+            {
+            }
+        });
         $(window).bind("resize", resizeWindow);
     });
 function resizeWindow( e ) {
@@ -59,23 +75,23 @@ function resizeWindow( e ) {
       <div class="cp_w">
         
         <div class="cp_1 f_l cp_em">
-          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img1.jpg" alt="" />
-          <input type="radio" value="1" name="coverpage" class="jcp" />
+            <label for="img1"><img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img1.jpg" alt="" /></label>
+            <input id="img1" type="radio" value="1" name="coverpage" class="jcp" />
         </div>
 
         <div class="cp_1 f_l cp_em ">
-          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img2.jpg" alt="" />
-          <input type="radio" value="2" name="coverpage" class="jcp" />
+          <label for="img2"><img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img2.jpg" alt="" /></label>
+          <input id="img2" type="radio" value="2" name="coverpage" class="jcp" />
         </div>
 
         <div class="cp_1 f_l cp_em">
-          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img3.jpg" alt="" />
-          <input type="radio" value="3" name="coverpage" class="jcp"/>
+          <label for="img3"><img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img3.jpg" alt="" /></label>
+          <input id="img3" type="radio" value="3" name="coverpage" class="jcp"/>
         </div>
 
         <div class="cp_1 f_l cp_em last">
-          <img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img4.jpg" alt="" />
-          <input type="radio" value="4" name="coverpage" class="jcp"/>
+          <label for="img4"><img src="<?php echo base_url(); ?>images/cover_pages/thumbs/img4.jpg" alt="" /></label>
+          <input id="img4" type="radio" value="4" name="coverpage" class="jcp"/>
         </div>
 
         

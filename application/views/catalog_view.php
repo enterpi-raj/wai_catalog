@@ -1798,8 +1798,9 @@
         <div class="pbr">
             <h2>Table of Contents</h2>
         </div>
-        <div class="pbr"><img width="748px" src="<?php echo $basepath;?>images/parts/<?php echo $partimage->rename_image;?>"></div>
+        <div class="pbr"><img width="700px" src="<?php echo $basepath;?>images/parts/<?php echo $partimage->rename_image;?>"></div>
         <div>
+            <div>BOM Parts for Part#: <?php echo $partimage->part_number;?></div>
             <table class="list" style="width: 99%; margin-top: 1em;">
                 <tr class="head">
                     <td class="center" style="width: 15%">BOM Part#</td>
@@ -1816,8 +1817,8 @@
                 <tr class="list_row">
                     <td class="center"><?php echo $bompart->bom_part_id;?></td>
                     <td><?php echo $bompart->wai_partnumber;?></td>
-                    <td class="center"><?php echo $bompart->wai_linedesc;?></td>
-                    <td class="center"><?php echo $bompart->manufacturer;?></td>
+                    <td class="center"><?php echo empty($bompart->wai_linedesc)?'---':$bompart->wai_linedesc;?></td>
+                    <td class="center"><?php echo empty($bompart->manufacturer)?'---':$bompart->manufacturer;?></td>
                     <td style="text-align: right"><?php echo $bompart->image;?></td>
                     <td>---</td>
                 </tr>

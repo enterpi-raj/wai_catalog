@@ -34,7 +34,7 @@ class Catalog_model extends CI_Model {
 
     function getPartImage($part_id = 0)
     {
-        $rs = $this->db->query('select image,rename_image from parts where id = '.$part_id);
+        $rs = $this->db->query('select part_number,image,rename_image from parts where id = '.$part_id);
         return $rs->first_row();
     }
 

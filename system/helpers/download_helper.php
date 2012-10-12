@@ -39,13 +39,16 @@
  */
 if ( ! function_exists('force_download'))
 {
-	function force_download($filename = '', $data = '')
+	function force_download($filename = '', $data = '', $org_filename = '')
 	{
 		if ($filename == '' OR $data == '')
 		{
 			return FALSE;
 		}
-
+        if($org_filename == '')
+        {
+            $org_filename = $filename;
+        }
 		// Try to determine if the filename includes a file extension.
 		// We need it in order to set the MIME type
 		if (FALSE === strpos($filename, '.'))
@@ -81,7 +84,7 @@ if ( ! function_exists('force_download'))
 		if (strpos($_SERVER['HTTP_USER_AGENT'], "MSIE") !== FALSE)
 		{
 			header('Content-Type: "'.$mime.'"');
-			header('Content-Disposition: attachment; filename="'.$filename.'"');
+			header('Content-Disposition: attachment; filename="'.$org_filename.'"');
 			header('Expires: 0');
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 			header("Content-Transfer-Encoding: binary");
@@ -91,7 +94,7 @@ if ( ! function_exists('force_download'))
 		else
 		{
 			header('Content-Type: "'.$mime.'"');
-			header('Content-Disposition: attachment; filename="'.$filename.'"');
+			header('Content-Disposition: attachment; filename="'.$org_filename.'"');
 			header("Content-Transfer-Encoding: binary");
 			header('Expires: 0');
 			header('Pragma: no-cache');

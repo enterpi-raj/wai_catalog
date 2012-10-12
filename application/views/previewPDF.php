@@ -25,7 +25,9 @@ $(document).ready(function(){
             },
             success: function(data)
             {
-                $('#pdf_preview').attr('src','<?php echo base_url();?>catalogs/catalog.pdf');
+                data = $.trim(data);
+                $('.jdl').attr('href','<?php echo base_url();?>catalog/fileDownload/'+data)
+                $('#pdf_preview').attr('src','<?php echo base_url();?>catalogs/'+data);
             },
             complete: function()
             {
@@ -62,7 +64,7 @@ function resizeWindow( e ) {
                 </span>
             </a>
 
-            <a class="blue_but jsubmit jdl f_r" href="<?php echo base_url();?>catalog/fileDownload">
+            <a class="blue_but jsubmit jdl f_r" href="#">
                 <span class="inner-btn">
                     <span class="label">Download</span>
                 </span>

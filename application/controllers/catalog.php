@@ -6,10 +6,12 @@ class Catalog extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}*/
-
+    public function info()
+    {
+        phpinfo();
+    }
     public function index()
     {
-        //echo BASEPATH;
         $masterdata = $this->catalog_model->getMasterData();
         $this->load->view('catalog_form',$masterdata);
     }
@@ -27,23 +29,33 @@ class Catalog extends CI_Controller {
         $domp = 'dompdf'; // using new dompdf (dompdf_new folder) files to generate pdf file
         $format = 'portrait';
         $pdf_path = 'catalogs/';
-        $filename = 'catalog.pdf';//$nmonth
+        $filename = strtotime(date('m-d-Y h:i:s')).'.pdf';//$nmonth
         //$this->load->view('catalog_view', $data);
         $html = $this->load->view('catalog_view', $data, true);
         if(pdf_create($html, $filename,$pdf_path,$format,$domp)) {
-            echo 'success';
+            echo $filename;
         }
         else {
             echo 'error';
         }
     }
 
-    function fileDownload() {
+    function fileDownload($filename) {
         $dir = 'catalogs/';
         $file = 'catalog.pdf';
         $this->load->helper('download');
-        $data = file_get_contents($dir.$file); // Read the file's contents
-        force_download($file, $data);
+        $data = file_get_contents($dir.$filename); // Read the file's contents
+        force_download($filename, $data, $file);
+    }
+
+    function setDetails()
+    {
+        $sql = 'select * from login_trace where session_id = "'.$this->session->userdata('session_id').'"';
+        $rs = $this->db->query($sql);
+        if($rs->num_rows < 1)
+        {
+            $this->tracelogin_model->trace_in($_POST['timezone']);
+        }
     }
 }
 
